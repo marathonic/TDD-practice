@@ -1,13 +1,5 @@
 export const capitalize = (word) => word.charAt(0).toUpperCase() + word.slice(1);
 
-// export default function capitalize(word) {
-//     return word.charAt(0).toUpperCase() + word.slice(1);
-// }
-
-// const reverseWord = (x) => {
-//     let newX = x
-// };
-
 export const reverseString = (str) => Array.from(str).reverse().join('').toString();
 
 class Calculator {
@@ -25,16 +17,7 @@ export let oneCalc = new Calculator();
 
 
 export function caesar(str){
-    
-    function checkIfLowerCase(str){
-        return str == str.toLowerCase() && str != str.toUpperCase();
-    }
-
-    function checkIfUppercase(str) {
-    return str == str.toUpperCase() && str != str.toLowerCase(); 
-    }
-
-    
+     
     // str = str.toLowerCase();
     
     let alphabet = 'abcdefghijklmnopqrstuvwxyz';
@@ -49,14 +32,30 @@ export function caesar(str){
     let upperAlphArr = Array.from(upperCaseAlphabet);
     let upperCipherArr = Array.from(upperCaseCipher);
 
+    let reggae = /[.,/#!$%^&*;:{}=-_`~()]/;
+    let reggaeX = '/[^\w\s]|_/g';
+    const punctuationReggae = /[.!?\\-]/;
+    const alphanumericReggae = /^[a-zA-Z0-9]+$/;
     let result = []; 
 
+
     for(let i = 0; i < strArr.length; i++){
+
+    
+    if(punctuationReggae.test(strArr[i])){
+        result.push(strArr[i])
+        continue;
+    }
 
     if(strArr[i] == ' ') {
         result.push(' ');
         continue;
     }
+
+    if(!alphanumericReggae.test(strArr[i])){
+        continue;
+    }
+
 
     if(checkIfUppercase(strArr[i])){
         let capitalizedLetter = strArr[i];
@@ -72,4 +71,14 @@ export function caesar(str){
     }
 
     return result.join('').toString();
+}
+
+//these functions run inside of the Caesar Cipher:
+   
+function checkIfLowerCase(str){
+    return str == str.toLowerCase() && str != str.toUpperCase();
+}
+
+function checkIfUppercase(str) {
+return str == str.toUpperCase() && str != str.toLowerCase(); 
 }

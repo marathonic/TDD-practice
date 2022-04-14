@@ -52,3 +52,7 @@ test('Cipher respects case', () => {
 test('Cipher respects spaces', () => {
     expect(caesar('C D')).toMatch('Z A');
 })
+
+test('Cipher respects punctuation', () => {
+    expect(caesar('!D...-')).toMatch('!A...-')
+})
