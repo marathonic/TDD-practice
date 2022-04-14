@@ -1,4 +1,4 @@
-import {caesar, capitalize, oneCalc, reverseString} from ".";
+import {analyzeArray, caesar, capitalize, oneCalc, reverseString} from ".";
 
 test('capitalise the first character', () => {
     expect(capitalize('hello')).toMatch('Hello')
@@ -56,3 +56,23 @@ test('Cipher respects spaces', () => {
 test('Cipher respects punctuation', () => {
     expect(caesar('!D...-')).toMatch('!A...-')
 })
+
+//testing analyzeArray
+
+// we  disable each as we go along so that it matches result
+// test('analyzeArray finds the average', () => {
+//     expect(analyzeArray([1,2,3])).toEqual({'average':2,});
+    
+// })
+
+test('analyzeArray finds the smollest', () => {
+    expect(analyzeArray([1,2,3])).toEqual({'average':2,'min':1});
+})
+
+// test('analyzeArray finds the ', () => {
+//     expect(analyzeArray()).toBe();
+// })
+
+// test('analyzeArray finds the ', () => {
+//     expect(analyzeArray()).toBe();
+// })

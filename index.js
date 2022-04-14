@@ -82,3 +82,27 @@ function checkIfLowerCase(str){
 function checkIfUppercase(str) {
 return str == str.toUpperCase() && str != str.toLowerCase(); 
 }
+
+export function analyzeArray(numArr){
+    return {
+        average: determineAverage(numArr),
+        min: findMin(numArr)
+    }
+}
+
+const determineAverage = (arr) => {
+    return arr.reduce((prev, curr) => prev + curr, 0) / arr.length;
+}; 
+
+// const findMin = (arr) => arr.sort((curr,next) => curr - next, 0);
+const findMin = (arr) => {
+    arr.sort((curr,next) => curr - next, 0);
+    return arr[0];
+}
+// const findMax = () => {
+
+// }
+
+
+
+
