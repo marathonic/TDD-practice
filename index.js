@@ -30,28 +30,39 @@ export function caesar(str){
         return str == str.toLowerCase() && str != str.toUpperCase();
     }
 
-    const checkIfUppercase = (str) => {
-    str == str.toUpperCase() && str != str.toLowerCase(); 
+    function checkIfUppercase(str) {
+    return str == str.toUpperCase() && str != str.toLowerCase(); 
     }
 
-
+    
     // str = str.toLowerCase();
-
+    
     let alphabet = 'abcdefghijklmnopqrstuvwxyz';
     let cipherAlphabet = 'xyzabcdefghijklmnopqrstuvw';
+    let upperCaseAlphabet = alphabet.toUpperCase(); 
+    let upperCaseCipher = cipherAlphabet.toUpperCase();
 
     let alphArr = Array.from(alphabet);
     let ciphArr = Array.from(cipherAlphabet);
     let strArr = Array.from(str);
 
+    let upperAlphArr = Array.from(upperCaseAlphabet);
+    let upperCipherArr = Array.from(upperCaseCipher);
+
     let result = []; 
 
     for(let i = 0; i < strArr.length; i++){
 
+    if(strArr[i] == ' ') {
+        result.push(' ');
+        continue;
+    }
 
     if(checkIfUppercase(strArr[i])){
-        let upperCaseAlphabet = alphabet.toUpperCase(); 
-        let upperCaseCipher = cipherAlphabet.toUpperCase();
+        let capitalizedLetter = strArr[i];
+        let myIndex = upperAlphArr.indexOf(capitalizedLetter);
+        result.push(upperCipherArr[myIndex]);
+        continue;
     }
 
 

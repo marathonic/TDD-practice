@@ -37,10 +37,18 @@ test('new Calculator multiplies 3 * 6 to equal 18', () => {
     expect(oneCalc.multiply()).toBe(18);
 })
 
-test('Caesar cipher encodes 2 steps back', () => {
+test('Caesar cipher encodes 3 steps back', () => {
     expect(caesar('de')).toMatch('ab');
 })
 
 test('Cipher wraps around alphabet', () => {
     expect(caesar('za')).toMatch('wx');
+})
+
+test('Cipher respects case', () => {
+    expect(caesar('DeE')).toMatch('AbB');
+})
+
+test('Cipher respects spaces', () => {
+    expect(caesar('C D')).toMatch('Z A');
 })
