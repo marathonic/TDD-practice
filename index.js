@@ -86,7 +86,9 @@ return str == str.toUpperCase() && str != str.toLowerCase();
 export function analyzeArray(numArr){
     return {
         average: determineAverage(numArr),
-        min: findMin(numArr)
+        min: findMin(numArr),
+        max: findMax(numArr),
+        length: findLength(numArr)
     }
 }
 
@@ -99,10 +101,14 @@ const findMin = (arr) => {
     arr.sort((curr,next) => curr - next, 0);
     return arr[0];
 }
-// const findMax = () => {
 
-// }
+const findMax = (arr) => {
+    arr.sort(function(curr, next) {
+        curr - next 
+    }, 0)
+    return arr[arr.length -1];
+}
 
-
+const findLength = (arr) => arr.length;
 
 

@@ -65,14 +65,25 @@ test('Cipher respects punctuation', () => {
     
 // })
 
-test('analyzeArray finds the smollest', () => {
-    expect(analyzeArray([1,2,3])).toEqual({'average':2,'min':1});
+// test('analyzeArray finds the smollest', () => {
+//     expect(analyzeArray([1,2,3])).toEqual({'average':2,'min':1});
+// })
+
+// test('analyzeArray finds the largest', () => {
+//     expect(analyzeArray([1,2,3])).toEqual({'average':2,'min':1,'max':3});
+// })
+
+test('analyzeArray finds the length', () => {
+    expect(analyzeArray([6,9,8,1])).toEqual({'average':6,'min':1,'max':9, 'length':4});
 })
 
-// test('analyzeArray finds the ', () => {
-//     expect(analyzeArray()).toBe();
-// })
-
-// test('analyzeArray finds the ', () => {
-//     expect(analyzeArray()).toBe();
-// })
+test('analyzeArray passes all tests', () => {
+    //NOTE: Using this just for a quick final test,
+    // but keep in mind these both point to the same array!
+    //myTest arr is only storing a refernce to analyzeArray 
+    let myTestArr = analyzeArray([1,2,3])
+    expect(myTestArr.average).toBe(2);
+    expect(myTestArr.min).toBe(1);
+    expect(myTestArr.max).toBe(3);
+    expect(myTestArr.length).toBe(3);
+})
